@@ -1,0 +1,739 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* preloader */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-bar {
+  width: 8px;
+  height: 30px;
+  margin: 0 8px;
+  border-radius: 4px;
+  background-color: #fff;
+  animation: stretch 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-of-type(1) {
+  animation-delay: -0.4s;
+}
+
+.loading-bar:nth-of-type(2) {
+  animation-delay: -0.2s;
+}
+
+.loading-bar:nth-of-type(3) {
+  animation-delay: 0s;
+}
+
+.loading-bar:nth-of-type(4) {
+  animation-delay: 0.2s;
+}
+
+.loading-bar:nth-of-type(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes stretch {
+
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+  }
+
+  20% {
+    transform: scaleY(1);
+  }
+}
+
+.content {
+  display: none;
+}
+
+.preloader.hide {
+  animation: fade-out 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+
+/* heading css */
+.heading {
+  background: rgb(8, 16, 29);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 100vw;
+  color: white;
+  font-size: 3rem;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.boxi {
+  padding: 0 1rem;
+  font-size: 4rem;
+}
+
+/* navbar css */
+nav {
+  background-color: #060d17;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  padding: 0 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 2rem;
+  z-index: 999;
+  color: white;
+}
+
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100%;
+}
+
+.menu li {
+  margin-left: 2rem;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu .li-flex {
+  /* border: 1px solid white; */
+  height: 100%;
+  width: 8vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s case-in;
+}
+
+.menu .li-flex:hover {
+  cursor: pointer;
+  /* flex-direction: row; */
+  background-color: #0c192c;
+}
+
+
+/* app css */
+.app {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #13233a;
+  /* background-color: #203e68; */
+  /* background-color: rgb(29, 29, 122); */
+  color: white;
+  padding: 10rem 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movieList {
+  height: 100%;
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* app css end */
+
+.trending {
+  font-size: 3.5rem;
+  text-align: center;
+  color: white;
+  height: auto;
+  padding: 1rem 0;
+  font-weight: 100;
+  /* border: 2px solid white; */
+  width: 100%;
+
+}
+
+.buttons {
+  margin-top: 2rem;
+  /* border: 1px solid white; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.buttons span {
+  font-size: 2rem;
+}
+
+.btn {
+  height: 70%;
+  width: 8%;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 0 3rem;
+}
+
+.pageMark {
+  font-size: 3.7rem;
+  /* margin-bottom: 5rem; */
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: burlywood;
+}
+
+/* movies cards css */
+
+.movie_card {
+  /* border:2px solid white; */
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: rgb(11, 22, 37);
+  overflow: visible;
+  /* justify-content: space-evenly; */
+  flex-direction: column;
+  margin: 1rem 3rem;
+  height: 40vh;
+  width: 12vw;
+  padding: 0.1rem;
+  position: relative;
+
+}
+
+.movie_card:hover {
+  cursor: pointer;
+  background-color: rgb(51, 107, 179);
+
+}
+
+.rating {
+  border-radius: 0.8rem;
+  background-color: rgb(9, 165, 9);
+  position: absolute;
+  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: -3%;
+  top: -2%;
+  height: 5%;
+  width: auto;
+  padding: 0.3rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.belowRating {
+  background-color: red;
+}
+
+.movie_card .poster {
+  height: 90%;
+  width: 95%;
+  object-fit: cover;
+  border-radius: 1rem;
+  padding-top: 0.1rem;
+}
+
+.movie_card .title {
+  font-size: 1.7rem;
+  overflow: hidden;
+  text-align: center;
+
+
+}
+
+.movie_card .detail {
+  /* border: 1px solid white; */
+  overflow: hidden;
+  width: 95%;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  font-size: 2rem;
+  font-weight: 100;
+  color: rgb(213, 213, 213);
+
+}
+
+.align-justify {
+  text-align: center;
+  font-size: 1.7rem;
+  overflow: hidden;
+}
+
+.search {
+  display: flex;
+  /* border: 1px solid white; */
+  justify-content: center;
+  width: 100%;
+}
+
+.searchBox {
+  background-color: #ffffffab;
+  width: 100%;
+}
+.searchTab{
+  width: 100%;
+}
+
+/* contentModel css start */
+.contentModel {
+  
+  height: 100%;
+  display: flex;
+
+}
+
+.contentModel .contentPoster {
+  border-radius: 1rem;
+  /* border: 1px solid white; */
+  -webkit-box-shadow: 6px 7px 17px -7px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 6px 7px 17px -7px rgba(255, 255, 255, 1);
+  box-shadow: 6px 7px 17px -7px rgba(255, 255, 255, 1);
+}
+
+.contentInfo {
+  /* border: 1px solid white; */
+  width: 70%;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+
+.tagline {
+  display: block;
+  font-size: 2rem;
+  color: rgb(189, 189, 189);
+  overflow: hidden;
+}
+
+.ctitle {
+  letter-spacing: 3px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.description {
+  margin-top: 1.5rem;
+  /* border: 2px solid rgb(27, 27, 27); */
+  border-radius: 1rem;
+  height: 30%;
+  width: 98%;
+  padding: 2rem;
+  text-align: justify;
+  font-size: 2.5rem;
+  font-weight: 100;
+  box-shadow: 0px 0px 11px 1px inset rgb(27, 27, 27);
+
+}
+
+/* img Carousel css */
+.contentCarousel {
+  /* border: 2px solid white; */
+  height: 50%;
+
+}
+
+.CarouselItem {
+  display: flex;
+  flex-direction: column;
+  object-fit: contain;
+  /* border: 2px solid red; */
+  padding: 1rem;
+  width: 20%;
+}
+
+.CarouselImg {
+  border-radius: 2rem;
+  margin-bottom: 0.5rem;
+  
+}
+
+.Carouseltxt {
+  font-size: 2rem;
+}
+
+.ytbtn {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+
+}
+
+/*loading bar*/
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.spinner {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: 0.6rem solid #ccc;
+  border-top-color: #6d4c41;
+  animation: spin 1.2s linear infinite;
+  position: absolute;
+  z-index: 2;
+}
+
+.spinner-ring {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: 2px solid #6d4c41;
+  position: absolute;
+  z-index: 1;
+  animation: pulsate 1.2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* responsive css */
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 1000px) {
+  html {
+    font-size: 40%;
+  }
+ 
+
+  .heading {
+    font-size: 3.6rem;
+  }
+
+  .boxi {
+    font-size: 5rem;
+  }
+
+  nav {
+    height: 15rem;
+    padding: 0 4rem;
+    font-size: 4rem;
+  }
+
+  .menu .li-flex {
+
+    width: 20vw;
+
+  }
+
+  .app {
+    margin-top: 6vh;
+    padding: 10rem 10rem;
+  }
+
+  .movie_card {
+    margin: 1rem 1rem;
+    height: 35vh;
+    width: 40vw;
+  }
+
+  .movie_card .title {
+    font-size: 2.7rem;
+  }
+
+  .movie_card .detail {
+    font-size: 2.3rem;
+
+  }
+
+  .align-justify {
+
+    font-size: 2rem;
+  }
+
+  .btn {
+    height: 70%;
+    width: 25%;
+    font-size: 2.7rem;
+    margin-bottom: 5rem;
+  }
+
+  .pageMark {
+    font-size: 3.7rem;
+    margin-bottom: 5rem;
+  }
+
+  .rating {
+    font-size: 2.4rem;
+  }
+
+  .contentModel {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .contentModel .contentPoster {
+    
+    height: 40%;
+    width: 55%;
+  }
+
+  .contentInfo {
+    
+    width: 97%;
+    height: 50%;
+
+  }
+
+  .description {
+    font-size: 3.5rem;
+    height: 50%;
+  }
+
+  .tagline {
+    font-size: 3rem;
+    height: 20%;
+  }
+
+  .ctitle {
+    margin-top: 3rem;
+    font-size: 4rem;
+    min-height: 20%;
+    text-align: center;
+  }
+
+  .trending {
+    font-size: 5.5rem;
+  }
+
+  .ytbtn {
+    font-size: 3rem;
+  }
+}
+
+
+
+
+
+/* mobile devices */
+@media (max-width: 500px) {
+  html {
+    font-size: 23%;
+  }
+
+  .heading {
+    font-size: 2.8rem;
+  }
+
+  .boxi {
+    font-size: 5rem;
+  }
+
+  nav {
+    height: 19rem;
+    padding: 0 4rem;
+    font-size: 4rem;
+  }
+
+  .menu .li-flex {
+
+    width: 20vw;
+  
+
+  }
+
+  .app {
+    margin-top: 6vh;
+    padding: 10rem 8rem;
+  }
+
+  .movie_card {
+    margin: 1rem 1rem;
+    height: 35vh;
+    width: 39vw;
+  }
+
+  .movie_card .title {
+    font-size: 2.7rem;
+  }
+
+  .movie_card .detail {
+    font-size: 2.3rem;
+
+  }
+
+  .align-justify {
+
+    font-size: 2rem;
+  }
+
+  .btn {
+    height: 70%;
+    width: 25%;
+    font-size: 2.7rem;
+    margin-bottom: 5rem;
+  }
+
+  .pageMark {
+    font-size: 3.7rem;
+    margin-bottom: 5rem;
+  }
+
+  .rating {
+    font-size: 2.4rem;
+  }
+
+  .contentModel {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .contentModel .contentPoster {
+    
+    height: 40%;
+    width: 55%;
+  }
+
+  .contentInfo {
+    
+    width: 97%;
+    height: 50%;
+
+  }
+
+  .description {
+    font-size: 3.5rem;
+    height: 50%;
+  }
+
+  .tagline {
+    font-size: 3rem;
+    height: 20%;
+  }
+
+  .ctitle {
+    margin-top: 3rem;
+    font-size: 4rem;
+    min-height: 20%;
+    text-align: center;
+  }
+
+  .trending {
+    font-size: 5.5rem;
+  }
+
+  .ytbtn {
+    font-size: 3rem;
+  }
+  .buttons {
+    margin: 2rem 0 7rem 0;
+    height: 8vh;
+
+  }
+  .spinner {
+    width: 8rem;
+    height: 8rem;
+  
+  }
+  
+  
+}

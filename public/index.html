@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="inMovies - Your Ultimate Guide to the Latest Movies and TV Shows"
+    content="Discover the latest movies and TV shows with inMovies, your one-stop destination for everything related to entertainment. From blockbuster movies to binge-worthy TV shows, we've got it all covered" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+  <link rel="icon" href="./icon.png">
+
+  <title>inMovies - Your Ultimate Guide to Entertainment</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div class="preloader">
+    <div class="loading-animation">
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+  <div id="root"></div>
+
+</body>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+<script>
+  //preloader
+  window.addEventListener('load', function () {
+    var preloader = document.querySelector('.preloader');
+    preloader.classList.add('hide');
+    setTimeout(function () {
+      preloader.style.display = 'none';
+      document.querySelector('.content').style.display = 'block';
+    }, 1000);
+  });</script>
+
+</html>
