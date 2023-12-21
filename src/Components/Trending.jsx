@@ -17,7 +17,7 @@ const Trending = () => {
 
 
     //handle previous button
-    const handlePrev = async () => {
+    const handlePrev = async () => { 
 
         setpage(page - 1);
         const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`);

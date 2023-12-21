@@ -13,7 +13,7 @@ function App() {
         <Heading />
         <Routes>
 
-          <Route exact path='/inMovies' element={<Trending />} />
+          <Route exact path='/' element={<Trending />} />
           <Route exact path='/Movies' element={<Movies />} />
           <Route exact path='/TvSeries' element={<Series />} />
           <Route exact path='/Search' element={<Search />} />

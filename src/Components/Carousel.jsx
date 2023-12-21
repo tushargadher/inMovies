@@ -5,7 +5,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 const handleDragStart = (e) => e.preventDefault();
 
-
+ 
 
 const Carousel = ({ type, id }) => {
 
@@ -40,7 +40,6 @@ const Carousel = ({ type, id }) => {
     return (
         <AliceCarousel
             autoPlay
-            // responsive={responsive}
             responsive={responsive}
             infinite
             disableDotsControls

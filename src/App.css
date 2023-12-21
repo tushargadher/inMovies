@@ -60,7 +60,6 @@ html {
 }
 
 @keyframes stretch {
-
   0%,
   40%,
   100% {
@@ -92,18 +91,16 @@ html {
   }
 }
 
-
-
 /* heading css */
 .heading {
   background: rgb(8, 16, 29);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  height: 8vh;
   width: 100vw;
   color: white;
-  font-size: 3rem;
+  font-size: 2rem;
   position: fixed;
   top: 0;
   z-index: 999;
@@ -111,7 +108,7 @@ html {
 
 .boxi {
   padding: 0 1rem;
-  font-size: 4rem;
+  font-size: 2.4rem;
 }
 
 /* navbar css */
@@ -120,17 +117,16 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 6rem;
+  height: 8vh;
   padding: 0 2rem;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  font-size: 2rem;
+  font-size: 1.7rem;
   z-index: 999;
   color: white;
 }
-
 
 .menu {
   list-style: none;
@@ -166,7 +162,6 @@ nav {
   background-color: #0c192c;
 }
 
-
 /* app css */
 .app {
   min-height: 100vh;
@@ -175,7 +170,7 @@ nav {
   /* background-color: #203e68; */
   /* background-color: rgb(29, 29, 122); */
   color: white;
-  padding: 10rem 22rem;
+  padding: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -188,7 +183,8 @@ nav {
   /* background-color: aqua; */
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  justify-content: center;
+  /* margin-top: 2rem; */
 }
 
 /* app css end */
@@ -202,7 +198,6 @@ nav {
   font-weight: 100;
   /* border: 2px solid white; */
   width: 100%;
-
 }
 
 .buttons {
@@ -252,17 +247,15 @@ nav {
   /* justify-content: space-evenly; */
   flex-direction: column;
   margin: 1rem 3rem;
-  height: 40vh;
-  width: 12vw;
-  padding: 0.1rem;
+  height: 45vh;
+  width: 13vw;
+  padding: 0.4rem;
   position: relative;
-
 }
 
 .movie_card:hover {
   cursor: pointer;
   background-color: rgb(51, 107, 179);
-
 }
 
 .rating {
@@ -290,17 +283,19 @@ nav {
 .movie_card .poster {
   height: 90%;
   width: 95%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 1rem;
-  padding-top: 0.1rem;
+  /* padding-top: 0.1rem; */
 }
 
 .movie_card .title {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   overflow: hidden;
   text-align: center;
-
-
+}
+.movie_card .date,
+.movie_card .category {
+  font-size: 1.5rem;
 }
 
 .movie_card .detail {
@@ -313,7 +308,6 @@ nav {
   font-size: 2rem;
   font-weight: 100;
   color: rgb(213, 213, 213);
-
 }
 
 .align-justify {
@@ -323,26 +317,28 @@ nav {
 }
 
 .search {
+  margin-top: 3vh;
   display: flex;
   /* border: 1px solid white; */
   justify-content: center;
-  width: 100%;
+  width: 80%;
+}
+.searchTab .categoryHeading {
+  font-size: 1.5rem;
 }
 
 .searchBox {
   background-color: #ffffffab;
   width: 100%;
 }
-.searchTab{
-  width: 100%;
+.searchTab {
+  width: 80%;
 }
 
 /* contentModel css start */
 .contentModel {
-  
   height: 100%;
   display: flex;
-
 }
 
 .contentModel .contentPoster {
@@ -363,54 +359,57 @@ nav {
   /* justify-content: center; */
 }
 
-
 .tagline {
   display: block;
   font-size: 2rem;
   color: rgb(189, 189, 189);
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .ctitle {
   letter-spacing: 3px;
   text-align: center;
   overflow: hidden;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .description {
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
   /* border: 2px solid rgb(27, 27, 27); */
   border-radius: 1rem;
   height: 30%;
   width: 98%;
   padding: 2rem;
   text-align: justify;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 100;
   box-shadow: 0px 0px 11px 1px inset rgb(27, 27, 27);
-
 }
 
 /* img Carousel css */
 .contentCarousel {
   /* border: 2px solid white; */
   height: 50%;
-
 }
-
+.alice-carousel__stage-item ,.alice-carousel__stage-item{
+  width: 12vw;
+}
 .CarouselItem {
   display: flex;
   flex-direction: column;
   object-fit: contain;
   /* border: 2px solid red; */
   padding: 1rem;
-  width: 20%;
+  width: 12vw;
 }
 
 .CarouselImg {
   border-radius: 2rem;
   margin-bottom: 0.5rem;
-  
+  width: 10vw;
+  height: 30vh;
 }
 
 .Carouseltxt {
@@ -420,7 +419,6 @@ nav {
 .ytbtn {
   font-size: 1.8rem;
   text-transform: uppercase;
-
 }
 
 /*loading bar*/
@@ -473,20 +471,6 @@ nav {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* responsive css */
 
 @media (max-width: 1200px) {
@@ -499,7 +483,6 @@ nav {
   html {
     font-size: 40%;
   }
- 
 
   .heading {
     font-size: 3.6rem;
@@ -516,14 +499,16 @@ nav {
   }
 
   .menu .li-flex {
-
     width: 20vw;
-
   }
 
   .app {
     margin-top: 6vh;
-    padding: 10rem 10rem;
+    padding: 6rem;
+  }
+  .movie_card .date,
+  .movie_card .category {
+    font-size: 2.2rem;
   }
 
   .movie_card {
@@ -538,11 +523,9 @@ nav {
 
   .movie_card .detail {
     font-size: 2.3rem;
-
   }
 
   .align-justify {
-
     font-size: 2rem;
   }
 
@@ -570,16 +553,13 @@ nav {
   }
 
   .contentModel .contentPoster {
-    
     height: 40%;
     width: 55%;
   }
 
   .contentInfo {
-    
     width: 97%;
     height: 50%;
-
   }
 
   .description {
@@ -606,11 +586,14 @@ nav {
   .ytbtn {
     font-size: 3rem;
   }
+  .search,
+  .searchTab {
+    width: 100%;
+  }
+  .searchTab .categoryHeading {
+    font-size: 2.5rem;
+  }
 }
-
-
-
-
 
 /* mobile devices */
 @media (max-width: 500px) {
@@ -619,7 +602,7 @@ nav {
   }
 
   .heading {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
 
   .boxi {
@@ -627,21 +610,21 @@ nav {
   }
 
   nav {
-    height: 19rem;
+    height: 8vh;
     padding: 0 4rem;
     font-size: 4rem;
   }
-
+  .search,
+  .searchTab {
+    width: 100%;
+  }
   .menu .li-flex {
-
     width: 20vw;
-  
-
   }
 
   .app {
     margin-top: 6vh;
-    padding: 10rem 8rem;
+    padding: 6rem;
   }
 
   .movie_card {
@@ -656,11 +639,9 @@ nav {
 
   .movie_card .detail {
     font-size: 2.3rem;
-
   }
 
   .align-justify {
-
     font-size: 2rem;
   }
 
@@ -688,16 +669,13 @@ nav {
   }
 
   .contentModel .contentPoster {
-    
     height: 40%;
     width: 55%;
   }
 
   .contentInfo {
-    
     width: 97%;
     height: 50%;
-
   }
 
   .description {
@@ -727,13 +705,9 @@ nav {
   .buttons {
     margin: 2rem 0 7rem 0;
     height: 8vh;
-
   }
   .spinner {
     width: 8rem;
     height: 8rem;
-  
   }
-  
-  
 }
